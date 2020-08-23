@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x-on Kullanımı</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+</head>
+<body>
+  <div x-data="isimSoyisim()">
+    <div x-on:click="isim='recep'">
+        
+        
+        Buraya tıklarsak değişir.
+        <div x-on:click.stop>
+            Buraya tıklarsak değişmez.
+        </div>
+
+
+
+    </div>
+
+    Değişen Değer : <span x-text='isim'></span>
+
+  </div>
+
+
+  <script>
+      function isimSoyisim(){
+          return {
+              isim: 'oğuzhan',
+              isimDegistir: function(){
+                  this.isim = 'Hasan'
+              }
+          }
+      }
+  </script>
+</body>
+</html>

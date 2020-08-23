@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x-spread Kullanımı</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.4.0/dist/alpine.min.js" defer></script>
+</head>
+<body>
+    <div x-data='isimSoyisim()' >
+        <span x-text='isim'></span>
+        <button x-spread='isimdegistir'></button>
+    </div>
+
+    <script>
+        function isimSoyisim(){
+            return {
+                isim: 'oğuzhan',
+                isimdegistir: {
+                    ['@click'](){
+                        this.isim = 'hasan'
+                    },
+                    ['@click.away'](){
+                        this.isim = 'recep'
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

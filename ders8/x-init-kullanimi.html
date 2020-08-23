@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x-init Kullanımı</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+</head>
+<body>
+    <div x-data="isimSoyisim()" x-init="init">
+        <span x-text='isim'></span>
+    </div>
+
+
+  <script>
+      function isimSoyisim(){
+          return {
+              init: function(){
+                alert('updated')
+              },
+              isim: 'oğuzhan',
+              isimDegistir: function(){
+                alert('uyarı')
+              }
+          }
+      }
+  </script>
+</body>
+</html>

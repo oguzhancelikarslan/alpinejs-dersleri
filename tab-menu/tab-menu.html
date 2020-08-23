@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Menü</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.4.0/dist/alpine.min.js" defer></script>
+    <style>
+        .selected {
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <div x-data="tabMenu()">
+        <button @click='active = "hasan"' :class="{'selected': active === 'hasan'}">Hasan</button>
+        <button @click='active = "enes"' :class="{'selected': active === 'enes'}">Enes</button>
+
+        <template x-if="active === 'hasan'">
+            <div>Hasan bir bilgisayar mühendisliği öğrencisidir.</div>
+        </template>
+        <template x-if="active === 'enes'">
+            <div>Enes bir sucuk satıcısı.</div>
+        </template>
+    </div>
+    <script>
+        function tabMenu() {
+            return {
+                active: 'hasan'
+            }
+        }
+    </script>
+</body>
+</html>

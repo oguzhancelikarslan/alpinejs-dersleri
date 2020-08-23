@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.4.0/dist/alpine.min.js" defer></script>
+    <style>
+        .completed{
+            text-decoration:line-through;
+        }
+    </style>
+</head>
+<body>
+  <div x-data='todos()'>
+    <form @submit.prevent='addNewTask'>
+        <input type="text" x-model="task" />
+        <button type="submit">Görev Ekle</button>
+    </form>
+
+   <ul>
+    <template x-for="todo in todos" :key='todo.id'>
+        <li :class="{'completed': todo.isComplete === true}">
+            <span x-text='todo.task'></span>
+            <input type="checkbox" x-model='todo.isComplete'>
+            <button @click='removeTask(todo.id)'>Delete</button>
+        </li>
+    </template>
+   </ul>
+
+  </div>
+
+
+  <script>
+      function todos() {
+          return {
+              id: 3,
+              task: '',
+              todos: [{
+                  'id': 1,
+                  'task': 'Okula git',
+                  'isComplete': true
+              },
+              {
+                  'id': 2,
+                  'task': 'Öğretmeni dinle',
+                  'isComplete': true
+              },
+              {
+                  'id': 3,
+                  'task': 'Eve gel yemeğini bitir.',
+                  'isComplete': false
+              }],
+              addNewTask: function() {
+                  if(this.task.trim() === '') return;
+
+                  this.todos.push({
+                      id: this.id++,
+                      task: this.task,
+                      isComplete: false
+                  })
+
+                  this.task = ''
+              },
+              removeTask: function(todoId) {
+                  this.todos = this.todos.filter(todo => todo.id != todoId)
+              }
+          }
+      }
+  </script>
+</body>
+</html>

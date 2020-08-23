@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$event magic property Kullanımı</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.4.0/dist/alpine.min.js" defer></script>
+</head>
+<body>
+    <div x-data="scope()">
+        <button @click="al($event)"></button>
+    </div>
+
+
+    <script>
+        function scope(){
+            return {
+                al: function(event){
+                    console.log(event)
+                }   
+            }
+        }
+    </script>
+</body>
+</html>

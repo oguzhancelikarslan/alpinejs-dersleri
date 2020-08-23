@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x-for Kullanımı</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+</head>
+<body>
+   
+  <div x-data="isimSoyisim()">
+    <ul>
+        <template x-for="isim in isimler">
+            <li>
+                <span x-text='isim'></span>
+            </li>
+        </template>
+    </ul>
+  </div>
+
+  <script>
+      function isimSoyisim(){
+          return {
+              isimler: ['oğuzhan', 'enes', 'murat', 'burhan']
+          }
+      }
+  </script>
+</body>
+</html>

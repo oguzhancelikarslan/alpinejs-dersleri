@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>x-show fonksiyon tabanlı Kullanımı</title>
+    <title>x-if Kullanımı</title>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
 </head>
 <body>
     <div x-data="isimSoyisim()">
-       <div x-show="status">
-        <span x-text="isim"></span>
-        <span x-text="soyisim"></span>
-       </div>
+       <template x-if="status">
+            <span x-text="isim"></span>
+            <span x-text="soyisim"></span>
+       </template>
     </div>
 
     <script>
         function isimSoyisim(){
             return {
-                status: true,
+                status: false,
                 isim : 'Oğuzhan',
                 soyisim : 'Çelikarslan'
             }

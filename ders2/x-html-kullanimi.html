@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x-html Kullanımı</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+</head>
+<body>
+    <div x-data="{'isim': '<b>Oğuzhan</b>', 'soyisim': '<b>Çelikarslan</b>'}">
+       <span x-html="isim"></span>
+       <span x-html="soyisim"></span>
+    </div>
+</body>
+</html>

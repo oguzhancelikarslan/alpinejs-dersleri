@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$el magic property Kullanımı</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.4.0/dist/alpine.min.js" defer></script>
+</head>
+<body>
+    <div x-data>
+        <span>
+            <button @click="$el.innerText = 'deneme'"></button>
+        </span>
+    </div>
+
+    <div>asdasd</div>
+</body>
+</html>
